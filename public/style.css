@@ -1,0 +1,7 @@
+body { font: 16px/1.5 system-ui, sans-serif; margin: 0; color: #1a1a1a; }
+nav { display: flex; gap: 1rem; flex-wrap: wrap; padding: .75rem 1rem; background: #eef2f7; }
+main { padding: 1rem; max-width: 40rem; }
+button { padding: .5rem 1rem; font-size: 1rem; }
+.danger { background: #b00020; color: #fff; border: 0; }
+#trial-banner { background: #fff3cd; padding: .75rem 1rem; }
+label { display: block; margin: .5rem 0; }
