@@ -40,6 +40,10 @@ These must pass in both builds and must not be reported as bugs:
 | `npm run test:allowed` | Unit tests without the seeded failing one. |
 | `npm run test:integration` | Starts the server twice (seeded and `FIXED=1`) and checks every symptom above over HTTP. |
 | `npm run test:e2e` | Playwright specs against `BASE_URL`. Needs `npm install` and a browser; this repo does not install either. |
+| `npm run test:a11y` | axe-core on every page in Chromium; fails on serious or critical violations (seeded: `/pricing` banner without alt). |
+| `npm run test:security` | Fetches every page; fails on a missing CSP or HSTS header and on session cookie flags (seeded: items 6 and 7). |
+| `npm run test:load` | 20 concurrent workers for 20 s against `BASE_URL`; fails on p95 above 1000 ms or any 5xx. |
+| `npm run test:explore` | Crawls `/` and up to 10 same-origin links; clicks every non-destructive button; fails on console errors, uncaught exceptions, 5xx, or a non-zero `deleteAccountCalls`. Writes a JSON report to stdout. |
 
 ## Test hooks
 

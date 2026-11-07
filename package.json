@@ -13,9 +13,14 @@
     "test": "node --test test/unit/*.test.js",
     "test:allowed": "node --test --test-skip-pattern=SEEDED test/unit/*.test.js",
     "test:integration": "node --test test/integration/*.test.js",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:a11y": "node scripts/qa/a11y.js",
+    "test:security": "node scripts/qa/security.js",
+    "test:load": "node scripts/qa/load.js",
+    "test:explore": "node scripts/qa/explore.js"
   },
   "devDependencies": {
-    "@playwright/test": "1.49.1"
+    "@playwright/test": "1.49.1",
+    "axe-core": "4.10.2"
   }
 }
