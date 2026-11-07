@@ -4,13 +4,15 @@
   "private": true,
   "description": "Small web app with deliberately seeded bugs, used as a target for Airlock QA acceptance tests. See SEEDED_BUGS.md.",
   "license": "UNLICENSED",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "build": "node scripts/build.js",
     "start": "node server.js",
-    "test": "node --test test/unit/",
-    "test:allowed": "node --test --test-skip-pattern=SEEDED test/unit/",
-    "test:integration": "node --test test/integration/",
+    "test": "node --test test/unit/*.test.js",
+    "test:allowed": "node --test --test-skip-pattern=SEEDED test/unit/*.test.js",
+    "test:integration": "node --test test/integration/*.test.js",
     "test:e2e": "playwright test"
   },
   "devDependencies": {
