@@ -1,0 +1,15 @@
+{
+  "qa": {
+    "healthPath": "/health",
+    "scripts": {
+      "start": "start",
+      "test": "test",
+      "test:integration": "test:integration",
+      "test:e2e": "test:e2e",
+      "test:a11y": "test:a11y",
+      "test:security": "test:security",
+      "test:load": "test:load",
+      "test:explore": "test:explore"
+    }
+  }
+}
