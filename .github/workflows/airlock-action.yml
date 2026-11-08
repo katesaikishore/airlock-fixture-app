@@ -1,0 +1,24 @@
+name: Airlock QA (action self-test)
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Airlock QA
+        uses: katesaikishore/AirlockQA@v1
+        with:
+          api-key: ${{ secrets.AIRLOCK_API_KEY }}
+          suites: smoke,explore
+          gate: strict
