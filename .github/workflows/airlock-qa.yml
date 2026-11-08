@@ -53,6 +53,7 @@ jobs:
         continue-on-error: true
         env:
           AIRLOCK_API_KEY: ${{ secrets.AIRLOCK_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
           QA_REPO: https://github.com/${{ github.repository }}
           QA_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
           QA_BRANCH: ${{ github.head_ref || github.ref_name }}
