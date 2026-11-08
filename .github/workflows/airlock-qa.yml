@@ -65,6 +65,8 @@ jobs:
 
       - name: Write the report
         if: always()
+        env:
+          AIRLOCK_API_KEY: ${{ secrets.AIRLOCK_API_KEY }}
         run: |
           if [ -s .airlock-qa/qa.json ]; then
             ID=$(jq -r '.id // empty' .airlock-qa/qa.json)
