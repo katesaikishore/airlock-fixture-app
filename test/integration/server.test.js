@@ -29,9 +29,14 @@ for (const fixed of [false, true]) {
 
     // ALLOWED behaviour in both modes
     test('ALLOWED: core pages render with 200', async () => {
-      for (const p of ['/', '/docs', '/pricing', '/dashboard', '/reports', '/checkout', '/trial', '/account']) {
+      for (const p of ['/', '/docs', '/pricing', '/dashboard', '/reports', '/checkout', '/trial', '/account', '/about']) {
         assert.equal((await fetch(base + p)).status, 200, p);
       }
+    });
+    test('ALLOWED: about page describes the fixture and shows its version', async () => {
+      const html = await (await fetch(base + '/about')).text();
+      assert.match(html, /<h1>About Fixture Shop<\/h1>/);
+      assert.match(html, /data-testid="about-version">Version 1\.1\.0</);
     });
     test('ALLOWED: valid checkout creates an order with the right total', async () => {
       await post(base, '/api/_reset', {});
